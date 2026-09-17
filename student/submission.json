@@ -3,8 +3,6 @@
   "readiness": {
     "ready": false,
     "missing": [
-      "assumptions",
-      "model",
       "prediction",
       "verification",
       "claim",
@@ -15,7 +13,7 @@
   },
   "record": {
     "id": "db3f21c0-3eb4-4696-92bd-b0aca27a520b",
-    "revision": "89",
+    "revision": "316",
     "model": {
       "moduleId": "controls",
       "modelId": "week07-student-model",
@@ -47,7 +45,7 @@
       "assumptions": {
         "suppliedBy": "student",
         "locked": false,
-        "text": ""
+        "text": "The model assumes that the elevator's effectiveness is linear​. This means that increasing elevator deflection by a certain amount produces a proportional increase in pitching moment. This assumption may become invalid at large elevator deflections or near stall conditions"
       },
       "inputs": {
         "suppliedBy": "instructor",
@@ -57,7 +55,7 @@
       "model": {
         "suppliedBy": "student",
         "locked": false,
-        "text": ""
+        "text": "Demand = Iy * target - competing\n\nDynamic Pressure = 0.5 * density * V^2\n\nCm_delta = Moment / q∞ S c_bar\n\nMoment = Cm_delta * q∞ * S * c_bar"
       },
       "prediction": {
         "suppliedBy": "student",

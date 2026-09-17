@@ -8,11 +8,11 @@ Answers and recorded model results from `submission.json`. This document does no
 
 - Record ID: db3f21c0-3eb4-4696-92bd-b0aca27a520b
 
-- Record revision: 89
+- Record revision: 316
 
 - Model hash: fnv1a-adee3cf8
 
-- Readiness: Marked incomplete or not ready; missing: assumptions, model, prediction, verification, claim, reflection, aiUse, execution
+- Readiness: Marked incomplete or not ready; missing: prediction, verification, claim, reflection, aiUse, execution
 
 ## Supplied setup (instructor supplied)
 
@@ -42,13 +42,23 @@ A downward force creates a counterclockwise torque around CG in the +Y axis.
 **Prompt:** Explain one supplied assumption and what could invalidate it: planar motion, fixed reference, local linear effectiveness, no trim or damping.
 
 **Student response:**
-_Missing — no response supplied._
+```
+The model assumes that the elevator's effectiveness is linear​. This means that increasing elevator deflection by a certain amount produces a proportional increase in pitching moment. This assumption may become invalid at large elevator deflections or near stall conditions
+```
 
 ### model
 **Prompt:** Write your demand, dynamic-pressure, coefficient and moment equations. Identify which quantities are supplied and which are unknown.
 
 **Student response:**
-_Missing — no response supplied._
+```
+Demand = Iy * target - competing
+
+Dynamic Pressure = 0.5 * density * V^2
+
+Cm_delta = Moment / q∞ S c_bar
+
+Moment = Cm_delta * q∞ * S * c_bar
+```
 
 ### prediction
 **Prompt:** Before running your own implementation, predict the sign of its elevator moment and the effect of halving airspeed. Explain the competing moment.
