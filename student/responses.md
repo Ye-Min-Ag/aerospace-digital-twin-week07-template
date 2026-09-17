@@ -8,9 +8,9 @@ Answers and recorded model results from `submission.json`. This document does no
 
 - Record ID: db3f21c0-3eb4-4696-92bd-b0aca27a520b
 
-- Record revision: 470
+- Record revision: 683
 
-- Model hash: fnv1a-22ea52bd
+- Model hash: fnv1a-57f164d3
 
 - Readiness: Marked incomplete or not ready; missing: verification, claim, reflection, aiUse, execution
 
@@ -68,6 +68,8 @@ Moment = Cm_delta * q∞ * S * c_bar
 The sign of elevator moment is + since it results in nose-up moment. 
 
 Halving the airspeed will decrease the moment by a factor of 4 as per the moment equation, assuming that Cm, dynamic pressure, and mean chord length remain constant.
+
+A competing moment can be thought of as the total moment upon the aircraft that is pitching the aircraft in the opposite direction of the demand monment. Competing moment can come from drag forces, lift forces on other control surfaces and components. It is not necessarily constant.
 ```
 
 ### verification
@@ -109,7 +111,7 @@ The recorded model JSON/expression source follows exactly as supplied. It is not
       "expressions": [
         {
           "name": "requiredMoment",
-          "expression": "Iy * target - competing",
+          "expression": "pitchInteria * requestedAcceleration - competingMoment",
           "unit": "N*m"
         }
       ]
@@ -119,17 +121,17 @@ The recorded model JSON/expression source follows exactly as supplied. It is not
       "expressions": [
         {
           "name": "dynamicPressure",
-          "expression": "0.5 * density * v^2",
+          "expression": "0.5 * density * airspeed * airspeed",
           "unit": "Pa"
         },
         {
           "name": "deltaCm",
-          "expression": "",
+          "expression": " elevatorDerivative * elevatorAngle",
           "unit": "1"
         },
         {
           "name": "deltaMoment",
-          "expression": "",
+          "expression": "dynamicPressure * referenceArea * referenceChord * deltaCm",
           "unit": "N*m"
         }
       ]
