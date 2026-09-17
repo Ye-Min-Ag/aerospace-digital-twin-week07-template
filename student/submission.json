@@ -3,7 +3,6 @@
   "readiness": {
     "ready": false,
     "missing": [
-      "prediction",
       "verification",
       "claim",
       "reflection",
@@ -13,14 +12,14 @@
   },
   "record": {
     "id": "db3f21c0-3eb4-4696-92bd-b0aca27a520b",
-    "revision": "316",
+    "revision": "470",
     "model": {
       "moduleId": "controls",
       "modelId": "week07-student-model",
       "version": "1.0.0"
     },
-    "modelText": "{\n  \"schemaVersion\": \"week07.student-model/v1\",\n  \"id\": \"week07-student-model\",\n  \"version\": \"1.0.0\",\n  \"slots\": [\n    {\n      \"id\": \"controls.demand\",\n      \"expressions\": [\n        {\n          \"name\": \"requiredMoment\",\n          \"expression\": \"\",\n          \"unit\": \"N*m\"\n        }\n      ]\n    },\n    {\n      \"id\": \"controls.effectiveness\",\n      \"expressions\": [\n        {\n          \"name\": \"dynamicPressure\",\n          \"expression\": \"\",\n          \"unit\": \"Pa\"\n        },\n        {\n          \"name\": \"deltaCm\",\n          \"expression\": \"\",\n          \"unit\": \"1\"\n        },\n        {\n          \"name\": \"deltaMoment\",\n          \"expression\": \"\",\n          \"unit\": \"N*m\"\n        }\n      ]\n    }\n  ]\n}",
-    "modelHash": "fnv1a-adee3cf8",
+    "modelText": "{\n  \"schemaVersion\": \"week07.student-model/v1\",\n  \"id\": \"week07-student-model\",\n  \"version\": \"1.0.0\",\n  \"slots\": [\n    {\n      \"id\": \"controls.demand\",\n      \"expressions\": [\n        {\n          \"name\": \"requiredMoment\",\n          \"expression\": \"Iy * target - competing\",\n          \"unit\": \"N*m\"\n        }\n      ]\n    },\n    {\n      \"id\": \"controls.effectiveness\",\n      \"expressions\": [\n        {\n          \"name\": \"dynamicPressure\",\n          \"expression\": \"0.5 * density * v^2\",\n          \"unit\": \"Pa\"\n        },\n        {\n          \"name\": \"deltaCm\",\n          \"expression\": \"\",\n          \"unit\": \"1\"\n        },\n        {\n          \"name\": \"deltaMoment\",\n          \"expression\": \"\",\n          \"unit\": \"N*m\"\n        }\n      ]\n    }\n  ]\n}",
+    "modelHash": "fnv1a-22ea52bd",
     "fields": {
       "question": {
         "suppliedBy": "instructor",
@@ -60,7 +59,7 @@
       "prediction": {
         "suppliedBy": "student",
         "locked": false,
-        "text": ""
+        "text": "The sign of elevator moment is + since it results in nose-up moment. \n\nHalving the airspeed will decrease the moment by a factor of 4 as per the moment equation, assuming that Cm, dynamic pressure, and mean chord length remain constant."
       },
       "execution": {
         "suppliedBy": "automatic",
@@ -99,7 +98,7 @@
         "expressions": [
           {
             "name": "requiredMoment",
-            "expression": "",
+            "expression": "Iy * target - competing",
             "unit": "N*m"
           }
         ]
@@ -109,7 +108,7 @@
         "expressions": [
           {
             "name": "dynamicPressure",
-            "expression": "",
+            "expression": "0.5 * density * v^2",
             "unit": "Pa"
           },
           {

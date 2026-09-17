@@ -8,11 +8,11 @@ Answers and recorded model results from `submission.json`. This document does no
 
 - Record ID: db3f21c0-3eb4-4696-92bd-b0aca27a520b
 
-- Record revision: 316
+- Record revision: 470
 
-- Model hash: fnv1a-adee3cf8
+- Model hash: fnv1a-22ea52bd
 
-- Readiness: Marked incomplete or not ready; missing: prediction, verification, claim, reflection, aiUse, execution
+- Readiness: Marked incomplete or not ready; missing: verification, claim, reflection, aiUse, execution
 
 ## Supplied setup (instructor supplied)
 
@@ -64,7 +64,11 @@ Moment = Cm_delta * q∞ * S * c_bar
 **Prompt:** Before running your own implementation, predict the sign of its elevator moment and the effect of halving airspeed. Explain the competing moment.
 
 **Student response:**
-_Missing — no response supplied._
+```
+The sign of elevator moment is + since it results in nose-up moment. 
+
+Halving the airspeed will decrease the moment by a factor of 4 as per the moment equation, assuming that Cm, dynamic pressure, and mean chord length remain constant.
+```
 
 ### verification
 **Prompt:** Show one independent hand calculation with units. Compare it with your model, and explain a sign, unit, or limiting-case check.
@@ -105,7 +109,7 @@ The recorded model JSON/expression source follows exactly as supplied. It is not
       "expressions": [
         {
           "name": "requiredMoment",
-          "expression": "",
+          "expression": "Iy * target - competing",
           "unit": "N*m"
         }
       ]
@@ -115,7 +119,7 @@ The recorded model JSON/expression source follows exactly as supplied. It is not
       "expressions": [
         {
           "name": "dynamicPressure",
-          "expression": "",
+          "expression": "0.5 * density * v^2",
           "unit": "Pa"
         },
         {
